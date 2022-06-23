@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { getBooks } from '@acme/books/data-access';
-import { Books } from '@acme/books/ui';
+import { Books, Book } from '@acme/books/ui';
 
 export const BooksFeature = () => {
   const [books, setBooks] = useState<any[]>([]);
@@ -17,7 +16,9 @@ export const BooksFeature = () => {
   return (
     <>
       <h2>Books</h2>
-      <Books books={books} />
+      {/* Pass a stub callback for now */}
+      {/* We'll implement this properly in Chapter 4 */}
+      <Books books={books} onAdd={(book) => alert(`Added ${book.title}`)} />
     </>
   );
 };
