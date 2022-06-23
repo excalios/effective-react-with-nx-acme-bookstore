@@ -3,11 +3,15 @@ import * as ReactDOMClient from 'react-dom/client';
 
 import App from './app/app';
 
+import { BrowserRouter } from 'react-router-dom';
+
 const root = ReactDOMClient.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>
 );

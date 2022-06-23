@@ -1,6 +1,8 @@
 # Notes
 
 - [Terminology](#terminology)
+- [Files](#files)
+- [Categories of Libraries](#categories-of-libraries)
 
 ## Terminology
 
@@ -57,3 +59,25 @@ examples:
 - `nx build bookstore`
 - `nx lint bookstore`
 - `nx test bookstore`
+
+## Categories of Libraries
+
+### Feature
+
+Libraries that implement “smart” UI (e.g. is effectful, is connected to data
+sources, handles routing, etc.) for specific business use cases.
+
+### UI
+
+Libraries that contain only presentational components. That is, components that
+render purely from their props, and calls function handlers when interaction
+occurs.
+
+### Data Access
+
+Libraries that contain the means for interacting with external data services;
+external services are typically backend services.
+
+### Utility
+
+Libraries that contain common utilities that are shared by many projects.
