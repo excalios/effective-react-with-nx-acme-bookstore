@@ -10,6 +10,8 @@ import {
   Main,
 } from '@acme/ui';
 
+import { CartFeature } from '@acme/cart/feature';
+
 export function App() {
   return (
     <>
@@ -20,10 +22,14 @@ export function App() {
           <NavigationItem>
             <Link to="/books">Books</Link>
           </NavigationItem>
+          <NavigationItem>
+            <Link to="/cart">Cart</Link>
+          </NavigationItem>
         </NavigationList>
       </Header>
       <Main>
         <Route path="/books" component={BooksFeature} />
+        <Route path="/cart" component={CartFeature} />
         <Route exact path="/" render={() => <Redirect to="/books" />} />
       </Main>
     </>
