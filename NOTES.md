@@ -5,6 +5,7 @@
 - [Categories of Libraries](#categories-of-libraries)
 - [Collecction](#collection)
 - [Enforcing Module Boundaries](#enforcing-module-boundaries)
+- [Error Module Boundaries](#error-module-boundaries)
 
 ## Terminology
 
@@ -108,3 +109,25 @@ should be omitted from further checks. We will see how overrides work after we
 define the depConstraints section. Finally, the flag
 enforceBuildableLibDependency prevents us from importing a non-buildable library
 into a buildable one.
+
+## Error Module Boundaries
+
+There's an error on part of the book that discusses about the module boundaries.
+Rather than an error it's more of an incomplete part. Where on the previous
+parts when we generated some libraries we didn't included tags which we should
+have. For that reason it was needed to manually edit the tags in the
+`project.json` to complete the tags.
+
+### `bookstore`
+
+Inside `apps/bookstore/project.json` the tags are `"type:app"`
+
+### `books-ui`
+
+Inside `libs/books/ui/project.json` the tags are `"type:ui", "scope:books"`
+
+make sure to reset your cache to update your dependency graph using `nx reset`
+
+Note to self: Always check for linter error before commit. Because app is
+running even though there are some linter error. To avoid dependency error or
+other
