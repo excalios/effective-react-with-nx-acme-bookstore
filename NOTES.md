@@ -3,6 +3,8 @@
 - [Terminology](#terminology)
 - [Files](#files)
 - [Categories of Libraries](#categories-of-libraries)
+- [Collecction](#collection)
+- [Enforcing Module Boundaries](#enforcing-module-boundaries)
 
 ## Terminology
 
@@ -81,3 +83,28 @@ external services are typically backend services.
 ### Utility
 
 Libraries that contain common utilities that are shared by many projects.
+
+## Collection
+
+A collection in Nx contains a set of generators and executors. Generators can be
+invoked using the generate command. Executors perform actions on your code,
+including build, lint, and test and are invoked by issuing commands to Nx–such
+as nx lint and nx test. Use nx list [collection] to list everything provided by
+the collection–e.g. `nx list @nrwl/react.`
+
+## Enforcing Module Boundaries
+
+The .eslintrc.json file at the root of your workspace contain an entry for
+@nrwl/nx/enforce-module-boundaries. The depConstraints section is the one you
+will be spending most time fine-tuning. It is an array of constraints, each
+consisting of sourceTag and onlyDependOnLibsWithTags properties. The default
+configuration has a wildcard \* set as a value for both of them, meaning that any
+project can import (depend on) any other project. The circular dependency chains
+such as lib A -> lib B -> lib C -> lib A are also not allowed. The self circular
+dependency (when lib imports from a named alias of itself), while not
+recommended, can be overridden by setting the flag allowCircularSelfDependency
+to true. The allow array is a whitelist listing the import definitions that
+should be omitted from further checks. We will see how overrides work after we
+define the depConstraints section. Finally, the flag
+enforceBuildableLibDependency prevents us from importing a non-buildable library
+into a buildable one.
