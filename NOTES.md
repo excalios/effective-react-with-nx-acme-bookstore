@@ -3,9 +3,10 @@
 - [Terminology](#terminology)
 - [Files](#files)
 - [Categories of Libraries](#categories-of-libraries)
-- [Collecction](#collection)
+- [Collection](#collection)
 - [Enforcing Module Boundaries](#enforcing-module-boundaries)
 - [Error Module Boundaries](#error-module-boundaries)
+- [Error Collection Task](#error-collection-task)
 
 ## Terminology
 
@@ -131,3 +132,16 @@ make sure to reset your cache to update your dependency graph using `nx reset`
 Note to self: Always check for linter error before commit. Because app is
 running even though there are some linter error. To avoid dependency error or
 other
+
+## Error Collection Task
+
+There might be an error on running task from a collection whether it is running
+a task or using a generator ex:
+- Cannot find module 'nx/src/config/configuration'
+- TypeError: Cannot read properties of undefined (reading 'endsWith')\n
+
+If this happens check your collection/libraries/plugins version. If there's a
+different version it is the cause of the error. Install the same version or
+migrate it.
+Check versions: `nx report`
+Migrate: `nx migrate`
