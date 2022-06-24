@@ -7,6 +7,7 @@
 - [Enforcing Module Boundaries](#enforcing-module-boundaries)
 - [Error Module Boundaries](#error-module-boundaries)
 - [Error Collection Task](#error-collection-task)
+- [Error Redux and Link](#error-redux-and-link)
 
 ## Terminology
 
@@ -137,6 +138,7 @@ other
 
 There might be an error on running task from a collection whether it is running
 a task or using a generator ex:
+
 - Cannot find module 'nx/src/config/configuration'
 - TypeError: Cannot read properties of undefined (reading 'endsWith')\n
 
@@ -145,3 +147,9 @@ different version it is the cause of the error. Install the same version or
 migrate it.
 Check versions: `nx report`
 Migrate: `nx migrate`
+
+## Error Redux and Link
+
+There is an error where redux and link is not working. The redux doesn't store
+the state and the link changes the uri but doesn't change the view. React
+StrictMode causes this so commenting or removing it would make it work.
